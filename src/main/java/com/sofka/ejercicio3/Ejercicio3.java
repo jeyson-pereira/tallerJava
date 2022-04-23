@@ -1,11 +1,13 @@
 package com.sofka.ejercicio3;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Ejercicio3 {
     private final Double pi;
     private Double radio;
     private final Scanner scanner;
+    private static final Logger logger = Logger.getLogger("com.sofka.ejercicio3");
 
     public Ejercicio3() {
         this.scanner = new Scanner(System.in);
@@ -13,13 +15,13 @@ public class Ejercicio3 {
     }
 
     public void setRadio() {
-        System.out.println("Digita el radio del circulo");
+        logger.info("Digita el radio del circulo");
         this.radio = scanner.nextDouble();
     }
 
     public void calcularRadio(Double radio) {
         double result = pi * (Math.pow(radio, 2));
-        System.out.println("El resultado es: " + result);
+        logger.info("El resultado es: " + result);
     }
 
     public static void main(String[] args) {
