@@ -1,7 +1,6 @@
 package com.sofka.ejercicio16;
 
 class Persona {
-
     private String nombre;
     private int edad;
     private String dni;
@@ -9,6 +8,10 @@ class Persona {
     private double peso;
     private double altura;
     private final static char SEXO_DEFAULT = 'H';
+
+    public static final int PESO_IDEAL = 0;
+    public static final int DELGADEZ = -1;
+    public static final int SOBREPESO = 1;
 
     //Contructores
     //Constructor por defecto
@@ -108,5 +111,25 @@ class Persona {
                 + "Peso: " + peso + " kg\n"
                 + "Altura: " + altura + " metros\n";
     }
-    //TODO: metodos calcularIMC, esMayorDeEdad
+
+    //Devuelve un booleano indicando si es mayor de edad
+    public boolean esMayorDeEdad() {
+        boolean mayor = edad >= 18;
+        return mayor;
+    }
+
+    //Calcular peso ideal de la persona con su peso y altura
+    public int calcularIMC() {
+        //Calculamos el peso de la persona
+        double pesoActual = peso / (Math.pow(altura, 2));
+        //Segun el peso, devuelve un entero (-1,0,1)
+        if (pesoActual >= 20 && pesoActual <= 25) {
+            return PESO_IDEAL;
+        } else if (pesoActual < 20) {
+            return DELGADEZ;
+        } else {
+            return SOBREPESO;
+        }
+    }
+
 }
