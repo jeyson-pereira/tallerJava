@@ -1,0 +1,4 @@
+package com.sofka.ejercicio17.modelos;
+
+public class Electrodomestico {
+}
